@@ -1,0 +1,13 @@
+ul
+  li
+    strong Title:
+    =< campaign.title
+  li
+    strong Body:
+    =< campaign.body
+  li
+    strong Icon:
+    p=< image_tag campaign.icon_url, class: "img", height: "31", alt: 'Campaign icon', title: 'Campaign icon'
+  li
+    strong Click action:
+    =< link_to 'link', campaign.click_action, target: '_blank', data: {turbolinks: 'false'}

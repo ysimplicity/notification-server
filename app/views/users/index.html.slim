@@ -1,0 +1,29 @@
+h2.section-title Listing Users
+
+- if @users.blank?
+  hr
+  blockquote No Users found
+  
+- else
+  p
+    small
+      | Total:
+      =< @users.count
+      
+  table
+    thead
+      tr
+        th UID
+        th Email
+        th Token
+        th Created at
+        
+    tbody
+      - @users.each do |user|
+        tr data-log-token="true"
+          td data-uid=user.uid
+            = truncate(user.uid, length: 18)
+          td= user.email
+          td data-token=user.token
+            = truncate(user.token, length: 30)
+          td= time_ago_in_words(user.created_at)

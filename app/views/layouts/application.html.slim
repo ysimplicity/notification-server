@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Notifications Server
+    
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+    link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,700|Roboto:100,300|Material+Icons" rel="stylesheet"
+  body
+    main.wrapper
+      header
+        nav class="navigation"
+          section class="container"
+            a class="navigation-title" href="/"
+              => image_tag 'ysimplicity-logo-white-sm.png', class: "img", height: "30", alt: "Notification Server", title: "Notification Server"
+              h1.title Notification Server
+
+            ul class="navigation-list float-right"
+              li class="navigation-item"
+                = link_to 'Campaigns', campaigns_path, class: 'navigation-link'
+              li class="navigation-item"
+                = link_to 'Users', users_path, class: 'navigation-link'
+            
+      section.container
+        - if notice.present?
+         h6#notice = notice
+         
+        = yield
+        
+      footer.footer
+        section.container
+          p
+            | 2016, made with <i class="material-icons heart">favorite</i> by
+            | &nbsp;<a href="mailto:info@ysimplicity.com">YSimplicity</a>.
+            | &nbsp;Licensed under the MIT License.

@@ -1,0 +1,12 @@
+defaults: &defaults
+  host: <%= ENV["WEB_APP_RECEIVER_HOST"] %>
+  default_icon_path: <%= ENV["WEB_APP_RECEIVER_DEFAULT_ICON_PATH"] %>
+
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+  
+production:
+  <<: *defaults

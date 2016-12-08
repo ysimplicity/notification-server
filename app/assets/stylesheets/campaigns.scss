@@ -1,0 +1,21 @@
+// Place all the styles related to the Campaigns controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table td.content {
+  width: 40%;
+}
+table td.content ul {
+  margin-bottom: 0;
+}
+table td.content ul li p {
+  margin-left: 2.7rem;
+  margin-bottom: 0;
+}
+table td.content ul li:last-child {
+  margin-bottom: 0;
+}
+
+table td.actions p:last-child {
+  margin-bottom: 0;
+}

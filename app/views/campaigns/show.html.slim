@@ -1,0 +1,35 @@
+h2.section-title
+  | Campaign:
+  =< @campaign.name
+
+p
+  small
+    | Created at:
+    =< time_ago_in_words(@campaign.created_at)
+
+p
+  => link_to 'Back', campaigns_path, class: 'button button-default button-outline button-small'
+  | or
+  =>< link_to 'Publish', campaigns_publish_path(@campaign), data: { confirm: 'Are you sure?' }, method: :post, class: 'button button-outline button-small'
+  strong to:
+  =< truncate(@campaign.to, length: 30)
+
+hr
+
+p
+  strong Title:
+  =< @campaign.title
+p
+  strong Body:
+  =< @campaign.body
+p
+  strong Icon:
+  br
+  =< image_tag @campaign.icon_url, class: "img", height: "62", alt: 'Campaign icon', title: 'Campaign icon'
+p
+  strong Click action:
+  =< link_to @campaign.click_action, @campaign.click_action, target: '_blank', data: {turbolinks: 'false'}
+
+hr
+
+p= link_to 'Destroy', @campaign, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button button-outline button-small'

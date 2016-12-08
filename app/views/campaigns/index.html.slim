@@ -1,0 +1,35 @@
+h2.section-title Listing Campaigns
+
+- if @campaigns.blank?
+  hr
+  blockquote No Campaigns found
+  
+- else
+  p
+    small
+      | Total:
+      =< @campaigns.count
+      
+  table
+    thead
+      tr
+        th Name
+        th Content
+        th To
+        th Created at
+        th
+
+    tbody
+      - @campaigns.each do |campaign|
+        tr
+          td = link_to campaign.name, campaign
+          td.content= render 'campaign_content', campaign: campaign
+          td = truncate(campaign.to, length: 30)
+          td = time_ago_in_words(campaign.created_at)
+          td.actions
+            p= link_to 'Publish', campaigns_publish_path(campaign), data: { confirm: 'Are you sure?' }, method: :post, class: 'button button-outline button-small'
+            p= link_to 'Destroy', campaign, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button button-outline button-small'
+
+br
+
+= link_to 'New Campaign', new_campaign_path, class: 'button'
