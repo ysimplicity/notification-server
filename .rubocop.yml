@@ -1,0 +1,22 @@
+AllCops:
+  Exclude:
+    - Rakefile
+    - db/*
+    - bin/*
+    - config/**/*
+    - test/*.rb
+    - db/migrate/**/*
+FrozenStringLiteralComment:
+  Enabled: false
+AndOr:
+  Enabled: false
+IfUnlessModifier:
+  Enabled: false
+LeadingCommentSpace:
+  Enabled: false
+StringLiterals:
+  Enabled: false
+SignalException:
+  EnforcedStyle: semantic
+Documentation:
+  Enabled: false
